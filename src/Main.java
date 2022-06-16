@@ -67,21 +67,26 @@ public class Main {
         myStack.push("0");
         System.out.println("size " + myStack.size());
         myStack.remove(1);
-        System.out.println("pop "+myStack.pop());
-        System.out.println("peek "+myStack.peek());
+        System.out.println("pop " + myStack.pop());
+        System.out.println("peek " + myStack.peek());
         System.out.println("size " + myStack.size());
         myStack.clear();
         System.out.println("size " + myStack.size());
 
         //Задание 5 - HashMap#
-        HashMap hashMap = new HashMap();
-        hashMap.put("data1".hashCode(), "data1");
-        hashMap.put("data2".hashCode(), "data2");
-        hashMap.put("data3".hashCode(), "data3");
-        hashMap.put("data4".hashCode(), "data4");
-        hashMap.put("data5".hashCode(), "data5");
-
-
+        MyHashMap myHashMap = new MyHashMap();
+        myHashMap.put("data1".hashCode(), "data1");
+        myHashMap.put("data2".hashCode(), "data2");
+        myHashMap.put("data3".hashCode(), "data3");
+        myHashMap.put("data4".hashCode(), "data4");
+        myHashMap.put("data5".hashCode(), "data5");
+        System.out.println("size " + myHashMap.size());
+        myHashMap.remove("data2".hashCode());
+        System.out.println("get " + myHashMap.get("data2".hashCode()));
+        System.out.println("size " + myHashMap.size());
+        myHashMap.clear();
+        System.out.println("size " + myHashMap.size());
+        System.out.println("get " + myHashMap.get("data4".hashCode()));
 
 
     }

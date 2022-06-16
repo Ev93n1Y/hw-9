@@ -11,6 +11,8 @@
         +get(Object key) возвращает значение(Object value) по ключу*/
 
 
+import java.util.Objects;
+
 public class MyHashMap {
     private int size;
     private Node last;
@@ -27,7 +29,7 @@ public class MyHashMap {
         }
     }
 
-    //добавляет пару ключ + значение
+    //add new Node key + value
     public void put(Object key, Object value) {
         if (noCollision(key)) {
             last = new Node(key, value, last);
@@ -39,12 +41,12 @@ public class MyHashMap {
 
     //remove Node by key
     public void remove(Object key) {
-        //использовать метод get(унифицировать)
+        findObject(key);
         //записать в пред ноде следующей ноду что после текущей(удляемой)
         //текущую ноду удаляем, походу нужно унифицировать метод клир и ремув
     }
 
-    //оclear collection
+    //clear collection
     public void clear() {
         Node prev;
         while (size != 0) {//or last!=null
@@ -62,17 +64,18 @@ public class MyHashMap {
         return size;
     }
 
-    // возвращает значение(Object value) по ключу
+    // return Object value by key
     public Object get(Object key) {
-        return findObject(key).value;
+        return Objects.requireNonNull(findObject(key)).value;
     }
 
-
+    //return no collision of key
     private boolean noCollision(Object keyObj) {
-        return findObject(keyObj)==null;
+        return findObject(keyObj) == null;
     }
 
-    public Node findObject(Object keyObj) {
+    //return Node with Object by key
+    private Node findObject(Object keyObj) {
         Node temp = last;
         while (size > 0) {
             if (temp.key.equals(keyObj)) {
@@ -82,9 +85,5 @@ public class MyHashMap {
             size--;
         }
         return null;
-    }
-
-    private boolean isEmpty() {
-        return size <= 0;
     }
 }
