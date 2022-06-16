@@ -8,7 +8,7 @@
         remove(Object key) удаляет пару по ключу
         +clear() очищает коллекцию
         +size() возвращает размер коллекции
-        get(Object key) возвращает значение(Object value) по ключу*/
+        +get(Object key) возвращает значение(Object value) по ключу*/
 
 
 public class MyHashMap {
@@ -63,26 +63,25 @@ public class MyHashMap {
     }
 
     // возвращает значение(Object value) по ключу
-    public void get(Object key) {
-        //тут прописать поиск ноды по ключу листая от последней ноды
-        //equals
+    public Object get(Object key) {
+        return findObject(key).value;
     }
 
 
     private boolean noCollision(Object keyObj) {
-        return ! findObject(keyObj);
+        return findObject(keyObj)==null;
     }
 
-    public boolean findObject(Object keyObj) {
+    public Node findObject(Object keyObj) {
         Node temp = last;
         while (size > 0) {
             if (temp.key.equals(keyObj)) {
-                return true;
+                return temp;
             }
             temp = temp.next;
             size--;
         }
-        return false;
+        return null;
     }
 
     private boolean isEmpty() {
