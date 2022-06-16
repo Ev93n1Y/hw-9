@@ -14,22 +14,23 @@ public class Main {
 
         //+Задание 2 - LinkedList#
         MyLinkedList myLinkedList = new MyLinkedList();
-        System.out.println("size: "+myLinkedList.size());
+        System.out.println("size: " + myLinkedList.size());
         myLinkedList.add(8);
         myLinkedList.add(7);
         myLinkedList.add(6);
         myLinkedList.add(5);
-        System.out.println("size: "+myLinkedList.size());
-        System.out.println("get: "+myLinkedList.get(2));
+        System.out.println("size: " + myLinkedList.size());
+        System.out.println("get: " + myLinkedList.get(2));
         myLinkedList.remove(0);
-        System.out.println("get: "+myLinkedList.get(2));
-        System.out.println("size: "+myLinkedList.size());
+        System.out.println("get: " + myLinkedList.get(2));
+        System.out.println("size: " + myLinkedList.size());
         myLinkedList.clear();
-        System.out.println("size: "+myLinkedList.size());
+        System.out.println("size: " + myLinkedList.size());
 
         //Задание 3 - Queue#
         MyQueue myQueue = new MyQueue();
-        System.out.println("size " + myQueue.size());myQueue.add(100);
+        System.out.println("size " + myQueue.size());
+        myQueue.add(100);
         myQueue.add(101);
         myQueue.add(102);
         myQueue.add(103);
@@ -69,7 +70,7 @@ public class Main {
         size() возвращает размер коллекции
         get(int index) возвращает элемент под индексом
 
-Задание 3 - Queue#
++Задание 3 - Queue#
         Написать свой класс MyQueue как аналог классу Queue, который будет работать по принципу FIFO (first-in-first-out).
         Можно делать либо с помощью Node либо с помощью массива.
         Методы
@@ -81,7 +82,7 @@ public class Main {
         poll() возвращает первый элемент в очереди и удаляет его из коллекции
 
 
-        Задание 4 - Stack#
+Задание 4 - Stack#
         Написать свой класс MyStack как аналог классу Stack, который работает по принципу LIFO (last-in-first-out).
         Можно делать либо с помощью Node либо с помощью массива.
         Методы

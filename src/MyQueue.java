@@ -98,7 +98,7 @@ public class MyQueue {
         Node prevNode = currentNode;
         Objects.checkIndex(index, size);//throw index out of bound error
         //find currentNode
-        for (int i = size-1; i > index; i--) {
+        for (int i = size - 1; i > index; i--) {
             prevNode = currentNode;
             currentNode = currentNode.getNext();
         }
