@@ -70,14 +70,19 @@ public class MyHashMap {
 
 
     private boolean noCollision(Object keyObj) {
-        while (size > 0) {//last!=0
-            if (last.key.equals(keyObj)) {
-                return false;
+        return ! findObject(keyObj);
+    }
+
+    public boolean findObject(Object keyObj) {
+        Node temp = last;
+        while (size > 0) {
+            if (temp.key.equals(keyObj)) {
+                return true;
             }
-            last = last.next;
+            temp = temp.next;
             size--;
         }
-        return true;
+        return false;
     }
 
     private boolean isEmpty() {
