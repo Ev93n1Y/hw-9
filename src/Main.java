@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
         //+Задание 1 - ArrayList#
@@ -72,6 +74,15 @@ public class Main {
         System.out.println("size " + myStack.size());
 
         //Задание 5 - HashMap#
+        HashMap hashMap = new HashMap();
+        hashMap.put("data1".hashCode(), "data1");
+        hashMap.put("data2".hashCode(), "data2");
+        hashMap.put("data3".hashCode(), "data3");
+        hashMap.put("data4".hashCode(), "data4");
+        hashMap.put("data5".hashCode(), "data5");
+
+
+
 
     }
 }
