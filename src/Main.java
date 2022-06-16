@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
         //+Задание 1 - ArrayList#
+        System.out.println("ArrayList***************");
         MyArrayList myArrayList = new MyArrayList(15);
         myArrayList.add(new Object());
         System.out.println(myArrayList.size());
@@ -12,7 +13,9 @@ public class Main {
         myArrayList.clear();
         System.out.println(myArrayList.size());
 
+
         //+Задание 2 - LinkedList#
+        System.out.println("myLinkedList************");
         MyLinkedList myLinkedList = new MyLinkedList();
         System.out.println("size: " + myLinkedList.size());
         myLinkedList.add(8);
@@ -28,6 +31,7 @@ public class Main {
         System.out.println("size: " + myLinkedList.size());
 
         //Задание 3 - Queue#
+        System.out.println("myQueue*****************");
         MyQueue myQueue = new MyQueue();
         System.out.println("size " + myQueue.size());
         myQueue.add(100);
@@ -46,7 +50,26 @@ public class Main {
         System.out.println("size " + myQueue.size());
 
         //Задание 4 - Stack#
-        MyStack myStack = new MyStack(20);
+        System.out.println("myStack*****************");
+        MyStack myStack = new MyStack(10);
+        System.out.println("size " + myStack.size());
+        myStack.push("9");
+        myStack.push("8");
+        myStack.push("7");
+        myStack.push("6");
+        myStack.push("5");
+        myStack.push("4");
+        myStack.push("3");
+        myStack.push("2");
+        myStack.push("1");
+        myStack.push("0");
+        System.out.println("size " + myStack.size());
+        myStack.remove(1);
+        System.out.println("pop "+myStack.pop());
+        System.out.println("peek "+myStack.peek());
+        System.out.println("size " + myStack.size());
+        myStack.clear();
+        System.out.println("size " + myStack.size());
 
         //Задание 5 - HashMap#
 

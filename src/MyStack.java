@@ -5,63 +5,75 @@
         Методы
         +push(Object value) добавляет элемент в конец
         +remove(int index) удаляет элемент под индексом
-        clear() очищает коллекцию
+        +clear() очищает коллекцию
         +size() возвращает размер коллекции
-        peek() возвращает первый элемент в стеке (LIFO)
-        pop() возвращает первый элемент в стеке и удаляет его из коллекции
+        +peek() возвращает первый элемент в стеке (LIFO)
+        +pop() возвращает первый элемент в стеке и удаляет его из коллекции
 */
 
 
 public class MyStack {
-    private Object[] arr;
+    private final Object[] array;
     private int top;
-    private int size;
+    private final int size;
 
     public MyStack(int size) {
-        arr = new Object[size];
+        array = new Object[size];
         this.size = size;
         top = -1;
     }
-    //добавляет элемент в конец
+
+    //add element at the end
     public void push(Object value) {
-        arr[++top] = value;
+        if (!isFull()) {
+            array[++top] = value;
+        } else {
+            throw new IndexOutOfBoundsException("Collection is full, can't add new element");
+        }
     }
 
-    //удаляет элемент под индексом
+    //remove element by index
     public void remove(int index) {
-        arr[index] = null;
-
+        if (isEmpty()) {
+            throw new IndexOutOfBoundsException("Collection is empty, there is nothing to remove");
+        } else {
+            System.arraycopy(array, index + 1, array, index, top - index);
+            array[top] = null;
+            top--;
+        }
     }
 
-    //очищает коллекцию
+    //clear all elements in collection
     public void clear() {
-        if(!isEmpty()){
-            for (int i = top; i > 0; i--) {
-                arr[i] = null;
+        if (isEmpty()) {
+            throw new IndexOutOfBoundsException("Collection is empty, there is nothing to clear");
+        } else {
+            for (int i = top; i > -1; i--) {
+                array[i] = null;
                 top--;
             }
         }
     }
 
-    //возвращает размер коллекции
+    //return number of elements in collection
     public int size() {
-        return top+1;
+        return top + 1;
     }
 
-    //возвращает первый элемент в стеке (LIFO)
+    //return first element in stack (LIFO)
     public Object peek() {
-        return arr[top];
+        return array[top];
     }
 
-    // возвращает первый элемент в стеке и удаляет его из коллекции
+    //return first element in stack and remove it from collection
     public Object pop() {
         Object obj = peek();
-        arr[top] = null;
+        remove(top);
         return obj;
     }
 
     public boolean isFull() {
-        return top==size-1;
+        return top == size - 1;
     }
 
     public boolean isEmpty() {
