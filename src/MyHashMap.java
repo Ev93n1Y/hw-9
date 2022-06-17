@@ -77,12 +77,13 @@ public class MyHashMap {
     //return Node with Object by key
     private Node findObject(Object keyObj) {
         Node temp = last;
-        while (size > 0) {
+        int numToFind = size;
+        while (numToFind > 0) {
             if (temp.key.equals(keyObj)) {
                 return temp;
             }
             temp = temp.next;
-            size--;
+            numToFind--;
         }
         return null;
     }
