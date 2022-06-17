@@ -53,6 +53,7 @@ public class Main {
 
         //Задание 4 - Stack#
         System.out.println("myStack*****************");
+
         MyStack myStack = new MyStack(10);
         System.out.println("size " + myStack.size());
         myStack.push("9");
@@ -75,6 +76,7 @@ public class Main {
 
         //Задание 5 - HashMap#
         MyHashMap myHashMap = new MyHashMap();
+        System.out.println("myHashMap***************");
         myHashMap.put("data1".hashCode(), "data1");
         myHashMap.put("data2".hashCode(), "data2");
         myHashMap.put("data3".hashCode(), "data3");

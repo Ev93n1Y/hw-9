@@ -11,7 +11,6 @@
         +get(Object key) возвращает значение(Object value) по ключу*/
 
 
-import java.util.Objects;
 
 public class MyHashMap {
     private int size;
@@ -66,7 +65,8 @@ public class MyHashMap {
 
     // return Object value by key
     public Object get(Object key) {
-        return Objects.requireNonNull(findObject(key)).value;
+        Node element = findObject(key);
+        return element!=null? element.value: null;
     }
 
     //return no collision of key
