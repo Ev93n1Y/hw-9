@@ -26,25 +26,9 @@ public class MyQueue {
             this.data = data;
         }
 
-        public Object getData() {
-            return data;
-        }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public void setData(Object data) {
-            this.data = data;
-        }
-
-        public void setNext(Node next) {
-            this.next = next;
-        }
-
         public static void cleanNode(Node node) {
-            node.setData(null);
-            node.setNext(null);
+            node.data = null;
+            node.next = null;
         }
     }
 
@@ -54,16 +38,12 @@ public class MyQueue {
         if (head == null) {
             head = newNode;
             tail = head;
-            tail.setNext(newNode);
+            tail.next = newNode;
         } else {
             Node temp = tail;
             tail = newNode;
-            tail.setNext(temp);
-            //tail.setNext(newNode);
+            tail.next = temp;
         }
-
-        // Если это первый элемент, то "голова" и "хвост" будут указывать на один и тот же элемент
-
         size++;
     }
 
@@ -72,22 +52,22 @@ public class MyQueue {
         if (size == 0) {
             return null;
         }
-        return head.getData();
+        return head.data;
     }
 
     //return 1st element in queue and remove it from collection
     public Object poll() {
-        Object obj = peek();
-        Node last = tail;
-        while (head != last.getNext()) {
-            last = last.getNext();
-        }
-        head = last;
-        // Если это был единственный элемент, то head станет  null
-        // и тогда last (хвост) тоже null.
         if (head == null) {
             tail = null;
+            return null;
         }
+        Object obj = peek();
+        Node last = tail;
+        while (head != last.next) {
+            last = last.next;
+        }
+        head = last;//next element become head
+        System.out.println("yyyyyyyy" + head.data + " " + obj);
         size--;
         return obj;
     }
@@ -100,15 +80,15 @@ public class MyQueue {
         //find currentNode
         for (int i = size - 1; i > index; i--) {
             prevNode = currentNode;
-            currentNode = currentNode.getNext();
+            currentNode = currentNode.next;
         }
         if (index == 0) {
             head = prevNode;
-            head.setNext(null);
+            head.next = null;
         } else if (index == size - 1) {
-            tail = tail.getNext();
+            tail = tail.next;
         } else {
-            prevNode.setNext(currentNode.getNext());
+            prevNode.next = currentNode.next;
         }
         Node.cleanNode(currentNode);
         size--;

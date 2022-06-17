@@ -30,18 +30,6 @@ public class MyLinkedList {
             this.data = data;
             this.next = next;
         }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public Object getData() {
-            return data;
-        }
-
-        public Node getPrev() {
-            return prev;
-        }
     }
 
     //add Object at the end
@@ -59,7 +47,7 @@ public class MyLinkedList {
 
     //get Object by index
     public Object get(int index) {
-        return nodeByIndex(index).getData();
+        return nodeByIndex(index).data;
     }
 
     //remove Object by index
@@ -68,16 +56,16 @@ public class MyLinkedList {
         Node toRemove = nodeByIndex(index);
         toRemove.data = null;
         if (index == 0) {
-            toRemove.getNext().prev = null;
-            this.head = toRemove.getNext();
+            toRemove.next.prev = null;
+            this.head = toRemove.next;
             toRemove.next = null;
         } else if (index == size - 1) {
-            toRemove.getPrev().next = null;
-            this.tail = toRemove.getPrev();
+            toRemove.prev.next = null;
+            this.tail = toRemove.prev;
             toRemove.prev = null;
         } else {
-            toRemove.getPrev().next = toRemove.getNext();//prev next = next
-            toRemove.getNext().prev = toRemove.getPrev();//next prev = prev
+            toRemove.prev.next = toRemove.next;
+            toRemove.next.prev = toRemove.prev;
         }
         size--;
     }
@@ -89,7 +77,7 @@ public class MyLinkedList {
             toClean.data = null;
             if (size > 1) {
                 toClean = toClean.prev;
-                toClean.getNext().prev = null;
+                toClean.next.prev = null;
                 toClean.next = null;
             }
             size--;
@@ -109,7 +97,7 @@ public class MyLinkedList {
             return node;
         }
         for (int i = 0; i < index; i++) {
-            node = node.getNext();
+            node = node.next;
         }
         return node;
     }

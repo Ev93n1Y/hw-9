@@ -45,7 +45,6 @@ public class MyArrayList {
         Objects.checkIndex(index, size);//check IndexOutOfBoundsException
         Object[] temp = elements;
         elements = new Object[temp.length - 1];
-        //Object value = temp[index];
         System.arraycopy(temp, 0, elements, 0, index);
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
         size--;

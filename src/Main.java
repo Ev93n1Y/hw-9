@@ -1,10 +1,9 @@
-import java.util.HashMap;
-
 public class Main {
     public static void main(String[] args) {
+
         //+Задание 1 - ArrayList#
-        System.out.println("ArrayList***************");
-        MyArrayList myArrayList = new MyArrayList(15);
+        System.out.println("myArrayList***************");
+        MyArrayList myArrayList = new MyArrayList();
         myArrayList.add(new Object());
         System.out.println(myArrayList.size());
         myArrayList.add(new Object());
@@ -47,6 +46,8 @@ public class Main {
         System.out.println("size " + myQueue.size());
         System.out.println("poll " + myQueue.poll());
         System.out.println("peek " + myQueue.peek());
+        System.out.println("poll " + myQueue.poll());
+        System.out.println("peek " + myQueue.peek());
         System.out.println("size " + myQueue.size());
         myQueue.clear();
         System.out.println("size " + myQueue.size());
@@ -85,11 +86,14 @@ public class Main {
         System.out.println("size " + myHashMap.size());
         myHashMap.remove("data2".hashCode());
         System.out.println("get " + myHashMap.get("data2".hashCode()));
+        System.out.println("get " + myHashMap.get("data3".hashCode()));
+        System.out.println("get " + myHashMap.get("data4".hashCode()));
         System.out.println("size " + myHashMap.size());
         myHashMap.clear();
         System.out.println("size " + myHashMap.size());
         System.out.println("get " + myHashMap.get("data4".hashCode()));
-
+        myHashMap.clear();
+        System.out.println("size " + myHashMap.size());
 
     }
 }
