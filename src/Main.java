@@ -94,6 +94,15 @@ public class Main {
         System.out.println("get " + myHashMap.get("data4".hashCode()));
         myHashMap.clear();
         System.out.println("size " + myHashMap.size());
+        myHashMap.put("data8".hashCode(), "data8");
+        //myHashMap.put("data9".hashCode(), "data9");
+        System.out.println("get " + myHashMap.get("data8".hashCode()));
+        //System.out.println("get " + myHashMap.get("data9".hashCode()));
+        myHashMap.clear();
+        myHashMap.put("qwerty".hashCode(), "qwerty");
+        System.out.println("get " + myHashMap.get("qwerty".hashCode()));
+
+
 
     }
 }

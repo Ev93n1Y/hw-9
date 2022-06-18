@@ -84,8 +84,9 @@ public class MyHashMap {
 
     //return Node by key or null
     private Node findObject(Object keyObj) {
+
         Node prevObj = findPrevObject(keyObj);
-        return prevObj != null ? prevObj.next : null;
+        return prevObj != null ? size==1?prevObj:prevObj.next : null;
     }
 
     //return prevNode  by key or null
@@ -102,6 +103,7 @@ public class MyHashMap {
             currentNode = currentNode.next;
             numToFind--;
         }
+
         return null;
     }
 }
