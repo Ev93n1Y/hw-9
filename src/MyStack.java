@@ -12,24 +12,21 @@
 */
 
 
-public class MyStack {
-    private final Object[] array;
+public class MyStack<T> {
+    private T[] array;
     private int top;
-    private final int size;
+    private int size;
 
-    public MyStack(int size) {
-        array = new Object[size];
-        this.size = size;
+    public MyStack() {
+        size = 0;
         top = -1;
+        array = (T[]) new Object[size];
     }
 
     //add element at the end
-    public void push(Object value) {
-        if (!isFull()) {
-            array[++top] = value;
-        } else {
-            throw new IndexOutOfBoundsException("Collection is full, can't add new element");
-        }
+    public void push(T value) {
+        array = (T[]) new Object[++size];
+        array[++top] = value;
     }
 
     //remove element by index
@@ -61,19 +58,15 @@ public class MyStack {
     }
 
     //return first element in stack (LIFO)
-    public Object peek() {
+    public T peek() {
         return array[top];
     }
 
     //return first element in stack and remove it from collection
-    public Object pop() {
-        Object obj = peek();
+    public T pop() {
+        T obj = peek();
         remove(top);
         return obj;
-    }
-
-    public boolean isFull() {
-        return top == size - 1;
     }
 
     public boolean isEmpty() {

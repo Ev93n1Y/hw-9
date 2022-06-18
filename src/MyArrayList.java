@@ -12,27 +12,18 @@
 
 import java.util.Objects;
 
-public class MyArrayList {
-    private Object[] elements;
+public class MyArrayList<T>  {
+    private T[] elements;
     private int size;
     private static final int DEFAULT_CAPACITY = 10;
 
     public MyArrayList() {
-        this.elements = new Object[DEFAULT_CAPACITY];
+        this.elements = (T[]) new Object[DEFAULT_CAPACITY];
     }
 
-    public MyArrayList(int initialCapacity) {
-        if (initialCapacity > 0) {
-            this.elements = new Object[initialCapacity];
-        } else if (initialCapacity == 0) {
-            this.elements = new Object[]{};
-        } else {
-            throw new IllegalStateException("Illegal Capacity: " + initialCapacity);
-        }
-    }
 
     //add Object at the end
-    public void add(Object element) {
+    public void add(T element) {
         if (size == elements.length) {
             elements = grow();//increase array capacity
         }
@@ -43,8 +34,8 @@ public class MyArrayList {
     //remove element by index
     public void remove(int index) {
         Objects.checkIndex(index, size);//check IndexOutOfBoundsException
-        Object[] temp = elements;
-        elements = new Object[temp.length - 1];
+        T[] temp = elements;
+        elements = (T[]) new Object[temp.length - 1];
         System.arraycopy(temp, 0, elements, 0, index);
         System.arraycopy(temp, index + 1, elements, index, temp.length - index - 1);
         size--;
@@ -52,9 +43,9 @@ public class MyArrayList {
 
     //clear collection
     public void clear() {
-        final Object[] obj = elements;
+        final T[] t = elements;
         for (int i = 0; i < size; i++) {
-            obj[i] = null;
+            t[i] = null;
         }
         size = 0;
     }
@@ -65,14 +56,14 @@ public class MyArrayList {
     }
 
     //return element by index
-    public Object get(int index) {
+    public T get(int index) {
         Objects.checkIndex(index, size);//check IndexOutOfBoundsException
         return elements[index];
     }
 
     //increase collection capacity
-    private Object[] grow() {
-        Object[] temp = new Object[(elements.length * 2)];
+    private T[] grow() {
+        T[] temp = (T[]) new Object[(elements.length * 2)];
         System.arraycopy(elements, 0, temp, 0, elements.length);
         return temp;
     }

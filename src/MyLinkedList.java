@@ -12,7 +12,7 @@
 
 import java.util.Objects;
 
-public class MyLinkedList {
+public class MyLinkedList<T> {
     public MyLinkedList() {
     }
 
@@ -20,12 +20,12 @@ public class MyLinkedList {
     private Node tail;
     private int size = 0;
 
-    private static class Node {
+    private class Node {
         private Node prev;
         private Node next;
-        private Object data;
+        private T data;
 
-        public Node(Node prev, Object data, Node next) {
+        public Node(Node prev, T data, Node next) {
             this.prev = prev;
             this.data = data;
             this.next = next;
@@ -33,7 +33,7 @@ public class MyLinkedList {
     }
 
     //add Object at the end
-    public void add(Object value) {
+    public void add(T value) {
         Node prevNode = this.tail;
         Node newNode = new Node(prevNode, value, null);
         this.tail = newNode;
@@ -46,7 +46,7 @@ public class MyLinkedList {
     }
 
     //get Object by index
-    public Object get(int index) {
+    public T get(int index) {
         return nodeByIndex(index).data;
     }
 

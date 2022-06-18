@@ -13,27 +13,27 @@
 
 import java.util.Objects;
 
-public class MyQueue {
+public class MyQueue<T> {
     private int size;
     private Node head; //first
     private Node tail; //last
 
-    private static class Node {
-        private Object data;
+    private class Node {
+        private T data;
         private Node next;
 
-        public Node(Object data) {
+        public Node(T data) {
             this.data = data;
-        }
-
-        public static void cleanNode(Node node) {
-            node.data = null;
-            node.next = null;
         }
     }
 
+    public void cleanNode(Node node) {
+        node.data = null;
+        node.next = null;
+    }
+
     //add element at the end
-    public void add(Object value) {
+    public void add(T value) {
         Node newNode = new Node(value);
         if (head == null) {
             head = newNode;
@@ -48,7 +48,7 @@ public class MyQueue {
     }
 
     //return 1st element in queue (FIFO)
-    public Object peek() {
+    public T peek() {
         if (size == 0) {
             return null;
         }
@@ -56,20 +56,19 @@ public class MyQueue {
     }
 
     //return 1st element in queue and remove it from collection
-    public Object poll() {
+    public T poll() {
         if (head == null) {
             tail = null;
             return null;
         }
-        Object obj = peek();
+        T t = peek();
         Node last = tail;
         while (head != last.next) {
             last = last.next;
         }
         head = last;//next element become head
-        System.out.println("yyyyyyyy" + head.data + " " + obj);
         size--;
-        return obj;
+        return t;
     }
 
     //remove element by index
@@ -90,7 +89,7 @@ public class MyQueue {
         } else {
             prevNode.next = currentNode.next;
         }
-        Node.cleanNode(currentNode);
+        cleanNode(currentNode);
         size--;
     }
 

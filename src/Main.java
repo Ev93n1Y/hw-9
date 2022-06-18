@@ -3,26 +3,30 @@ public class Main {
 
         //+Задание 1 - ArrayList#
         System.out.println("myArrayList***************");
-        MyArrayList myArrayList = new MyArrayList();
-        myArrayList.add(new Object());
-        System.out.println(myArrayList.size());
-        myArrayList.add(new Object());
-        System.out.println(myArrayList.size());
-        System.out.println(myArrayList.get(0));
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        myArrayList.add(1);
+        System.out.println("size: " + myArrayList.size());
+        myArrayList.add(2);
+        System.out.println("size: " + myArrayList.size());
+        System.out.println("get: " + myArrayList.get(0));
         myArrayList.remove(1);
-        System.out.println(myArrayList.size());
+        System.out.println("size: " + myArrayList.size());
         myArrayList.clear();
-        System.out.println(myArrayList.size());
+        System.out.println("size: " + myArrayList.size());
+        myArrayList.add(3);
+        myArrayList.add(4);
+        myArrayList.add(5);
+        System.out.println("get: " + myArrayList.get(2));
 
 
         //+Задание 2 - LinkedList#
         System.out.println("myLinkedList************");
-        MyLinkedList myLinkedList = new MyLinkedList();
+        MyLinkedList<Double> myLinkedList = new MyLinkedList<>();
         System.out.println("size: " + myLinkedList.size());
-        myLinkedList.add(8);
-        myLinkedList.add(7);
-        myLinkedList.add(6);
-        myLinkedList.add(5);
+        myLinkedList.add(8.01);
+        myLinkedList.add(7.02);
+        myLinkedList.add(6.03);
+        myLinkedList.add(5.04);
         System.out.println("size: " + myLinkedList.size());
         System.out.println("get: " + myLinkedList.get(2));
         myLinkedList.remove(0);
@@ -30,16 +34,17 @@ public class Main {
         System.out.println("size: " + myLinkedList.size());
         myLinkedList.clear();
         System.out.println("size: " + myLinkedList.size());
+        //System.out.println("get: " + myLinkedList.get(0));//compilation err
 
         //Задание 3 - Queue#
         System.out.println("myQueue*****************");
-        MyQueue myQueue = new MyQueue();
+        MyQueue<Character> myQueue = new MyQueue<>();
         System.out.println("size " + myQueue.size());
-        myQueue.add(100);
-        myQueue.add(101);
-        myQueue.add(102);
-        myQueue.add(103);
-        myQueue.add(104);
+        myQueue.add('A');
+        myQueue.add('B');
+        myQueue.add('C');
+        myQueue.add('D');
+        myQueue.add('E');
         System.out.println("size " + myQueue.size());
         System.out.println("peek " + myQueue.peek());
         myQueue.remove(4);
@@ -54,29 +59,28 @@ public class Main {
 
         //Задание 4 - Stack#
         System.out.println("myStack*****************");
-
-        MyStack myStack = new MyStack(10);
-        System.out.println("size " + myStack.size());
-        myStack.push("9");
-        myStack.push("8");
-        myStack.push("7");
-        myStack.push("6");
-        myStack.push("5");
-        myStack.push("4");
-        myStack.push("3");
-        myStack.push("2");
-        myStack.push("1");
-        myStack.push("0");
-        System.out.println("size " + myStack.size());
-        myStack.remove(1);
-        System.out.println("pop " + myStack.pop());
-        System.out.println("peek " + myStack.peek());
-        System.out.println("size " + myStack.size());
-        myStack.clear();
-        System.out.println("size " + myStack.size());
+        MyStack<String> stringStack = new MyStack<>();
+        System.out.println("size " + stringStack.size());
+        stringStack.push("9");
+        stringStack.push("8");
+        stringStack.push("7");
+        stringStack.push("6");
+        stringStack.push("5");
+        stringStack.push("4");
+        stringStack.push("3");
+        stringStack.push("2");
+        stringStack.push("1");
+        stringStack.push("0");
+        System.out.println("size " + stringStack.size());
+        stringStack.remove(1);
+        System.out.println("pop " + stringStack.pop());
+        System.out.println("peek " + stringStack.peek());
+        System.out.println("size " + stringStack.size());
+        stringStack.clear();
+        System.out.println("size " + stringStack.size());
 
         //Задание 5 - HashMap#
-        MyHashMap myHashMap = new MyHashMap();
+        MyHashMap<Integer,String> myHashMap = new MyHashMap<>();
         System.out.println("myHashMap***************");
         myHashMap.put("data1".hashCode(), "data1");
         myHashMap.put("data2".hashCode(), "data2");

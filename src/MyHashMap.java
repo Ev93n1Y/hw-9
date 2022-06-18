@@ -11,16 +11,16 @@
         +get(Object key) возвращает значение(Object value) по ключу*/
 
 
-public class MyHashMap {
+public class MyHashMap<K, V> {
     private int size;
     private Node last;
 
-    private static class Node {
+    private class Node {
         Object key;
-        Object value;
+        V value;
         Node next;
 
-        public Node(Object key, Object value, Node next) {
+        public Node(K key, V value, Node next) {
             this.key = key;
             this.value = value;
             this.next = next;
@@ -28,7 +28,7 @@ public class MyHashMap {
     }
 
     //add new Node key + value
-    public void put(Object key, Object value) {
+    public void put(K key, V value) {
         if (noCollision(key)) {
             last = new Node(key, value, last);
             size++;
@@ -38,8 +38,8 @@ public class MyHashMap {
     }
 
     //remove Node by key
-    public void remove(Object key) {
-        Node prevNode = findPrevObject(key);
+    public void remove(K k) {
+        Node prevNode = findPrevObject(k);
         if (prevNode != null) {
             prevNode.next = deleteObject(prevNode.next);//delete and prev node gets right next link
         } else {
@@ -72,38 +72,35 @@ public class MyHashMap {
     }
 
     // return Object value by key or null
-    public Object get(Object key) {
-        Node element = findObject(key);
+    public V get(K k) {
+        Node element = findObject(k);
         return element != null ? element.value : null;
     }
 
     //return no collision of key
-    private boolean noCollision(Object keyObj) {
-        return findObject(keyObj) == null;
+    private boolean noCollision(K k) {
+        return findObject(k) == null;
     }
 
     //return Node by key or null
-    private Node findObject(Object keyObj) {
-
-        Node prevObj = findPrevObject(keyObj);
-        return prevObj != null ? size==1?prevObj:prevObj.next : null;
+    private Node findObject(K k) {
+        Node prevObj = findPrevObject(k);
+        return prevObj != null ? size == 1 ? prevObj : prevObj.next : null;
     }
 
     //return prevNode  by key or null
-    private Node findPrevObject(Object keyObj) {
+    private Node findPrevObject(K k) {
         Node currentNode = last;
         Node prevNode = currentNode;//keep prev Node
         int numToFind = size;
         while (numToFind != 0) {
-
-            if (currentNode.key.equals(keyObj)) {
+            if (currentNode.key.equals(k)) {
                 return prevNode;
             }
             prevNode = currentNode;
             currentNode = currentNode.next;
             numToFind--;
         }
-
         return null;
     }
 }
