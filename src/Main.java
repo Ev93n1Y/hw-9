@@ -74,15 +74,29 @@ public class Main {
         System.out.println("size " + stringStack.size());
         stringStack.remove(1);
         System.out.println("pop " + stringStack.pop());
+        System.out.println("pop " + stringStack.pop());
+        System.out.println("pop " + stringStack.pop());
         System.out.println("peek " + stringStack.peek());
         System.out.println("size " + stringStack.size());
         stringStack.clear();
         System.out.println("size " + stringStack.size());
+        System.out.println("peek " + stringStack.peek());
+        stringStack.push("10");
+        System.out.println("peek " + stringStack.peek());
+        System.out.println("size " + stringStack.size());
+        stringStack.push("11");
+        System.out.println("pop " + stringStack.pop());
+
+
 
         //Задание 5 - HashMap#
         MyHashMap<Integer,String> myHashMap = new MyHashMap<>();
         System.out.println("myHashMap***************");
         myHashMap.put("data1".hashCode(), "data1");
+        myHashMap.put("data2".hashCode(), "data2");
+        myHashMap.put("data2".hashCode(), "data2");
+        myHashMap.put("data2".hashCode(), "data2");
+        myHashMap.put("data2".hashCode(), "data2");
         myHashMap.put("data2".hashCode(), "data2");
         myHashMap.put("data3".hashCode(), "data3");
         myHashMap.put("data4".hashCode(), "data4");

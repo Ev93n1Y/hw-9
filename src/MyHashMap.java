@@ -14,11 +14,13 @@
 public class MyHashMap<K, V> {
     private int size;
     private Node last;
+    private Node collisionNode;
 
     private class Node {
         Object key;
         V value;
         Node next;
+        int count;
 
         public Node(K key, V value, Node next) {
             this.key = key;
@@ -33,7 +35,8 @@ public class MyHashMap<K, V> {
             last = new Node(key, value, last);
             size++;
         } else {
-            throw new IndexOutOfBoundsException("Hashcode collision!");
+            collisionNode.count++;
+            //throw new IndexOutOfBoundsException("Hashcode collision!");
         }
     }
 
@@ -62,6 +65,7 @@ public class MyHashMap<K, V> {
         node.value = null;//delete last value
         nextNode = node.next;//temporary keep link to next element
         node.next = null;//delete link to next element
+        node.count = 0;
         size--;
         return nextNode;
     }
@@ -79,7 +83,8 @@ public class MyHashMap<K, V> {
 
     //return no collision of key
     private boolean noCollision(K k) {
-        return findObject(k) == null;
+        collisionNode = findObject(k);
+        return collisionNode == null;
     }
 
     //return Node by key or null

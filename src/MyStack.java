@@ -12,21 +12,22 @@
 */
 
 
+import java.util.Arrays;
+
 public class MyStack<T> {
     private T[] array;
-    private int top;
-    private int size;
+    private int top = -1;
 
     public MyStack() {
-        size = 0;
-        top = -1;
-        array = (T[]) new Object[size];
+        array = (T[]) new Object[0];
     }
 
     //add element at the end
     public void push(T value) {
-        array = (T[]) new Object[++size];
-        array[++top] = value;
+        T[] array1 = array;
+        //array = (T[]) new Object[++top];
+        array = Arrays.copyOf(array1, ++top + 1);
+        array[top] = value;
     }
 
     //remove element by index
@@ -59,14 +60,14 @@ public class MyStack<T> {
 
     //return first element in stack (LIFO)
     public T peek() {
-        return array[top];
+        return isEmpty() ? null : array[top];
     }
 
     //return first element in stack and remove it from collection
     public T pop() {
-        T obj = peek();
+        T t = peek();
         remove(top);
-        return obj;
+        return isEmpty()? null: t;
     }
 
     public boolean isEmpty() {
